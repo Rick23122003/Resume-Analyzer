@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+python-multipart
+pdfminer.six
+python-dotenv
+langchain
+langchain-google-genai
+langchain-core
+pydantic
