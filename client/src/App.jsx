@@ -22,7 +22,10 @@ function App() {
     formData.append('jobDescription', jobDesc);
 
     try {
-      const response = await fetch('http://localhost:5001/api/upload', {
+      // Use Vercel's environment variable, or fall back to localhost
+      const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5001';
+
+      const response = await fetch(`${backendUrl}/api/upload`,{
         method: 'POST',
         body: formData,
       });
