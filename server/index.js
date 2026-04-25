@@ -39,7 +39,11 @@ app.post('/api/upload', upload.single('resume'), async (req, res) => {
     // Append the text data to the form
     formData.append('job_description', jobDescription);
 
-    const pythonResponse = await axios.post('http://127.0.0.1:8000/api/extract', formData, {
+    // Use the live URL if available, otherwise fall back to localhost for local testing
+    const pythonEngineUrl = process.env.PYTHON_ENGINE_URL || 'http://127.0.0.1:8000';
+    
+    // 2. Send the file to your Python FastAPI service
+    const pythonResponse = await axios.post(`${pythonEngineUrl}/api/extract`, formData, {
       headers: {
         ...formData.getHeaders(),
       },
