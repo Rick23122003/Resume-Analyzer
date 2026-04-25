@@ -1,0 +1,17 @@
+# Node & React dependencies
+node_modules/
+dist/
+.npm/
+
+# Python dependencies & environments
+venv/
+__pycache__/
+*.pyc
+
+# Environment Variables (CRITICAL)
+.env
+.env.*
+
+# OS generated files
+.DS_Store
+Thumbs.db
